@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import path, include
-from pedido import views
+from order import views
+from order.views import OrderList
 
 def index(request):
     return HttpResponse('pick orders API')
@@ -25,5 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='home'),
     path('api-auth/', include('rest_framework.urls')),
-    path('order', views.search_orders, name='order')
+    path('driver', views.search_orders, name='driver'),
+    path('order', OrderList.as_view(), name='order'),
+
 ]
