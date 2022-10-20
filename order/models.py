@@ -3,10 +3,12 @@ from django.db import models
 
 class Order(models.Model):
     id = models.AutoField(primary_key=True)
-    latitud = models.DecimalField(max_digits=22, decimal_places=16)
-    longitud = models.DecimalField(max_digits=22, decimal_places=16)
+    latitud_collected = models.DecimalField(max_digits=22, decimal_places=16)
+    longitud_collected = models.DecimalField(max_digits=22, decimal_places=16)
+    latitud_destiny = models.DecimalField(max_digits=22, decimal_places=16)
+    longitud_destiny = models.DecimalField(max_digits=22, decimal_places=16)
     date_order = models.DateField()
-    hour_order = models.CharField(max_length=50)
+    hour = models.IntegerField()
     driver = models.CharField(max_length=250)
 
     class Meta:
