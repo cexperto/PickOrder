@@ -4,9 +4,8 @@ from rest_framework import status
 from order.models import Order
 import requests
 from .findDriver import FindDriver
-
+from .validateHour import ValidateHour
 class OrderSerializer(serializers.ModelSerializer):
-    hour = serializers.IntegerField(max_value=12)
     class Meta:
         model = Order
         fields = '__all__'
@@ -22,8 +21,12 @@ class OrderSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         url = 'https://gist.githubusercontent.com/jeithc/96681e4ac7e2b99cfe9a08ebc093787c/raw/632ca4fc3ffe77b558f467beee66f10470649bb4/points.json'
         id_driver = validated_data['driver']
+        hour = validated_data['hour']
+        v_hour = ValidateHour()
+        if not v_hour.validateHour(hour):
+            raise serializers.ValidationError("Hour field have incorrect format, should be hh:mm, in 24h")
         find = FindDriver()
-        if find.search_orders(url, id_driver):
+        if find.search_orders(url, int(id_driver)):
             return Order.objects.create(**validated_data)
         raise serializers.ValidationError("driver dont found")
         
@@ -39,3 +42,6 @@ class OrderSerializer(serializers.ModelSerializer):
 #         instance.driver = validated_data.get('driver', instance.driver)
 #         instance.save()
 #         return instance
+
+# class OrderSerializerByDate(serializers.ModelSerializer):
+    

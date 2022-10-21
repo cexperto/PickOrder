@@ -8,7 +8,7 @@ class Order(models.Model):
     latitud_destiny = models.DecimalField(max_digits=22, decimal_places=16)
     longitud_destiny = models.DecimalField(max_digits=22, decimal_places=16)
     date_order = models.DateField()
-    hour = models.IntegerField()
+    hour = models.CharField(max_length=30)
     driver = models.CharField(max_length=250)
 
     class Meta:
