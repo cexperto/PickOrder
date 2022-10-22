@@ -19,8 +19,10 @@ from django.urls import path, include
 from order import views
 from order.views import OrderList, OrderByDate
 
+
 def index(request):
     return HttpResponse('pick orders API')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +31,5 @@ urlpatterns = [
     # path('driver', views.search_orders, name='driver'),
     path('order', OrderList.as_view(), name='order'),
     path('orderbydate', OrderByDate.as_view(), name='orderbydate'),
-
+    path('drivernear', views.find_driver, name='drivernear'),
 ]
