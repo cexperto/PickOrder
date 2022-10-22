@@ -18,10 +18,10 @@ HOUR_CHOICES = (
 
 class Order(models.Model):
     id = models.AutoField(primary_key=True)
-    latitud_collected = models.DecimalField(max_digits=22, decimal_places=16)
-    longitud_collected = models.DecimalField(max_digits=22, decimal_places=16)
-    latitud_destiny = models.DecimalField(max_digits=22, decimal_places=16)
-    longitud_destiny = models.DecimalField(max_digits=22, decimal_places=16)
+    latitud_collected = models.IntegerField()
+    longitud_collected = models.IntegerField()
+    latitud_destiny = models.IntegerField()
+    longitud_destiny = models.IntegerField()
     date_order = models.DateField()
     hour = models.CharField(max_length=30, choices=HOUR_CHOICES)
     driver = models.CharField(max_length=250)

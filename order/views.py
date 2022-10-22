@@ -66,7 +66,7 @@ def search_driver_nearly(json_data_drivers, lat1, long1):
     find_distance = DistanceBetwenTwoPoints()
     for drivers in json_data_drivers:
         f_d = find_distance.calculate_distance(
-            float(lat1), float(drivers["lat"]), float(long1), float(drivers["lng"])
+            int(lat1), int(drivers["lat"]), int(long1), int(drivers["lng"])
         )
         result = (drivers["id"], f_d)
         locations.append(result)
