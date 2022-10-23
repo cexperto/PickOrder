@@ -1,4 +1,3 @@
-from turtle import pd
 import requests
 
 

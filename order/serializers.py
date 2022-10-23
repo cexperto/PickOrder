@@ -17,17 +17,17 @@ class OrderSerializer(serializers.ModelSerializer):
         validate_hour = ValidateHour()
         if not validate_hour.validateHour(hour):
             raise serializers.ValidationError(
-                "Hour field have incorrect format, should be hh:mm, in 24h, in range 8:00 to 18:00"
+                "Incorrect hour format, it should be HH:MM (in 24h format), between 8:00 to 18:00 hours"
             )
         validate_calendar = self.validateCalendar(id_driver, date_order, hour)
         if not validate_calendar:
             raise serializers.ValidationError(
-                "Driver is busy in selected hour, please select other"
+                "Driver is busy in selected hour, please select a different hour"
             )
         find = FindDriver()
         if find.search_orders(url, int(id_driver)):
             return Order.objects.create(**validated_data)
-        raise serializers.ValidationError("driver dont found")
+        raise serializers.ValidationError("Driver not found")
 
     def validateCalendar(self, id_driver, date_order, hour):
         query = (
