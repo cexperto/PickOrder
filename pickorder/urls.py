@@ -31,8 +31,7 @@ def index(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='home'),
-    path('api-auth/', include('rest_framework.urls')),
-    # path('driver', views.search_orders, name='driver'),
+    path('api-auth/', include('rest_framework.urls')),    
     path('order', OrderList.as_view(), name='order'),
     path('orderbydate', OrderByDate.as_view(), name='orderbydate'),
     path('drivernear', views.find_driver, name='drivernear'),
