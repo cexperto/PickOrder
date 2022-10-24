@@ -1,38 +1,3 @@
-# Pick order API
-
-Project to implement a system that allows clients to schedule, in a
-Available time slots, when a driver can stop by and pick up an order
-
-
-## Deployment
-
-To deploy this project: 
-
-clone this repo
-
-with docker:
-
-run 
-```bash
-  docker compose -f docker-compose-dev.yml up
-```
-with cli:
-
-run: 
-```bash
-  ./cli
-```
-
-For run test:
-
-run: 
-```bash
-python3 manage.py test
-  
-```
-
-
-
 
 ## API Reference
 
@@ -57,7 +22,6 @@ For driver near endpoint:
 
 Json example:
 
-
     {
         "date_order": "2022-10-21",
         "hour":"4:10",
@@ -66,12 +30,23 @@ Json example:
     }
 
 
-## Authors
+Order by date
+endpoint for look driver in a specific date
+#### 
+```http
+  get orderbydate/
+```
+request example:
 
-- [@cexperto](https://github.com/cexperto)
+orderbydate?date_order=2022-10-22?driver=1
 
 
-## License
+Order by date
+endpoint for look order in specific date
+#### 
+```http
+  get orderbydate/
+```
+request example:
 
-[MIT](https://choosealicense.com/licenses/mit/)
-
+orderbydate?date_order=2022-10-22
