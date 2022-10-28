@@ -1,3 +1,6 @@
+# Pick order API
+
+Project to implement a system that allows clients to schedule, in a available time slots, when a driver can stop by and pick up an order
 
 ## Deployment
 
@@ -36,9 +39,18 @@ Run project:
 
 With cli:
 
+
+for linux
 run:
 
-    ./cli
+    ./clili
+
+for windows
+
+run:
+
+    ./cliwin
+
 
 Whit docker:
 
@@ -99,3 +111,24 @@ endpoint for look order in specific date
 request example:
 
 orderbydate?date_order=2022-10-22
+
+
+## Authors
+
+- [@cexperto](https://github.com/cexperto)
+
+
+## Running Tests
+
+To run tests, run the following command
+
+Linux
+
+```bash
+  python3 manage.py test
+```
+Windows
+
+```bash
+  python manage.py test
+```
