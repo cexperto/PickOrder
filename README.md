@@ -23,9 +23,9 @@ venv in windows:
     python -m venv venv
     source venv/scripts/activate
     pip install -r requirements.txt
-    python3 manage.py makemigrations order
-    python3 manage.py migrate
-    python3 manage.py runserver
+    python manage.py makemigrations order
+    python manage.py migrate
+    python manage.py runserver
 
 
 With cli:
