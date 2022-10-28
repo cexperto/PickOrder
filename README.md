@@ -1,6 +1,3 @@
-# Pick order API
-
-Project to implement a system that allows clients to schedule, in a available time slots, when a driver can stop by and pick up an order
 
 ## Deployment
 
@@ -8,47 +5,39 @@ To deploy this project, ther are 3 options: Manually, cli, docker:
 
 Manually:
 
-run:
 
-    python3 -m venv venv
-
-Activate venv in linux:
-
+venv in linux (make sure have root permissions):
+    sudo apt install python3-virtualenv python3-venv
+    virtualenv -p `which python3` venv
     source venv/bin/activate
-
-Activate venv in windows:
-
-    source venv/scripts/activate
-
-Install dependencies:
-
+    python3 -m pip install --upgrade pip
     pip install -r requirements.txt
-
-Make migrations:
-
     python3 manage.py makemigrations order
-
-Run migrations:
-
     python3 manage.py migrate
+    python3 manage.py runserver
 
-Run project:
 
+venv in windows:
+    python -m venv venv
+    source venv/scripts/activate
+    pip install -r requirements.txt
+    python3 manage.py makemigrations order
+    python3 manage.py migrate
     python3 manage.py runserver
 
 
 With cli:
 
-
-for linux
 run:
 
+linux:
+
+    chmod u+x clili
     ./clili
 
-for windows
+windows:
 
-run:
-
+    chmod u+x clili
     ./cliwin
 
 
@@ -111,24 +100,3 @@ endpoint for look order in specific date
 request example:
 
 orderbydate?date_order=2022-10-22
-
-
-## Authors
-
-- [@cexperto](https://github.com/cexperto)
-
-
-## Running Tests
-
-To run tests, run the following command
-
-Linux
-
-```bash
-  python3 manage.py test
-```
-Windows
-
-```bash
-  python manage.py test
-```
