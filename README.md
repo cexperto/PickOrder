@@ -7,6 +7,7 @@ Manually:
 
 
 venv in linux (make sure have root permissions):
+
     sudo apt install python3-virtualenv python3-venv
     virtualenv -p `which python3` venv
     source venv/bin/activate
@@ -18,6 +19,7 @@ venv in linux (make sure have root permissions):
 
 
 venv in windows:
+
     python -m venv venv
     source venv/scripts/activate
     pip install -r requirements.txt
@@ -37,7 +39,7 @@ linux:
 
 windows:
 
-    chmod u+x clili
+    chmod u+x cliwin
     ./cliwin
 
 
