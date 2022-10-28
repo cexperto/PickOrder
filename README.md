@@ -1,3 +1,6 @@
+## Pick order API
+
+Project to implement a system that allows clients to schedule, in a available time slots, when a driver can stop by and pick up an ordern
 
 ## Deployment
 
