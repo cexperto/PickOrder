@@ -16,9 +16,9 @@ COPY ./requirements.txt .
 
 RUN python3 -m pip install --root-user-action=ignore --no-cache-dir --upgrade -r requirements.txt
 
-RUN python3 makemigrations
+RUN python3 manage.py makemigrations order
 
-RUN python3 migrate
+RUN python3 manage.py migrate
 
 COPY . .
 
