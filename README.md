@@ -67,6 +67,33 @@ redoc
 
 http://localhost:8000/redoc/
 
+
+Schedule an order:
+
+#### 
+```http
+  POST /order
+```
+
+Json example:
+
+    {    
+        "latitud_collected": 15,
+        "longitud_collected": 15,
+        "latitud_destiny": 18,
+        "longitud_destiny": 18,
+        "date_order": "2022-10-21",
+        "hour": "8:00",
+        "driver": "1"
+    }
+
+
+Get all orders:
+
+```http
+  GET /order
+```
+
 For driver near endpoint:
 
 #### 
@@ -90,6 +117,13 @@ endpoint for look driver in a specific date
 ```http
   get orderbydate/
 ```
+
+fields:
+
+date_order=YY-MM-DD
+
+driver=<INT>
+
 request example:
 
     orderbydate?date_order=2022-10-22?driver=1
@@ -102,6 +136,11 @@ endpoint for look order in specific date
 ```http
   get orderbydate/
 ```
+
+fields:
+
+date_order=YY-MM-DD
+
 request example:
 
 orderbydate?date_order=2022-10-22
