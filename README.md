@@ -144,3 +144,16 @@ date_order=YY-MM-DD
 request example:
 
 orderbydate?date_order=2022-10-22
+
+
+Run tests:
+
+run:
+
+Windows:
+
+    python manage.py test
+
+Linux:
+
+    python3 manage.py test
